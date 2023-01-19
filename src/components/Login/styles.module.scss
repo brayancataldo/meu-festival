@@ -14,6 +14,21 @@
     font-size: 20px;
   }
 
+  .mainLogo {
+    // background-color: red;
+  }
+
+  .navbar {
+    // width: 200px;
+    // max-width: 600px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    // background-color: red;
+  }
+
   .spotifyText {
     color: #67d567;
   }
@@ -27,19 +42,23 @@
     border: 0;
     border-radius: 4px;
 
-    font-size: 19px;
+    font-size: 18px;
     font-weight: bold;
 
     padding: 1rem;
 
     cursor: pointer;
 
+    // background-color: rgba(0, 0, 0, 0%);
+
     svg {
       margin-left: 0.5rem;
     }
 
     &:hover {
-      filter: brightness(0.9);
+      // filter: brightness(0.9);
+      transform: scale(1.1);
+      // background-color: rgba(0, 0, 0, 50%);
     }
   }
 }
