@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import Logo from "../../assets/Logo.png";
+import Logo from "../../assets/logo.png";
 import Image from "next/image";
 import { AuthContext } from "../../contexts/auth";
 import axios from "axios";
