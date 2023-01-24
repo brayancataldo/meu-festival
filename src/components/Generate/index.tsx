@@ -1,11 +1,33 @@
 import { useContext, useEffect, useState } from "react";
-import { FiDownload } from "react-icons/fi";
+import { IoMdDownload } from "react-icons/io";
+import { AiOutlineTwitter } from "react-icons/ai";
 import axios from "axios";
 import html2canvas from "html2canvas";
 import { AuthContext } from "../../contexts/auth";
 import styles from "./styles.module.scss";
 import SpotifyLogo from "../../assets/Spotify_Logo_RGB_White.png";
 import Image from "next/image";
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  HatenaShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  LivejournalShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton,
+} from "react-share";
 interface ArtistProps {
   id: string;
   name: string;
@@ -16,6 +38,9 @@ interface ArtistProps {
 export function Generate() {
   const [artists, setArtists] = useState<ArtistProps[]>([]);
   const { user } = useContext(AuthContext);
+  const url = window.location.href;
+  const description =
+    "Esse é meu line do Rock the Mountain! Crie agora o seu em www.meu-festival-brasil.vercel.app";
 
   useEffect(() => {
     axios
@@ -122,9 +147,16 @@ export function Generate() {
           </a>
         </div>
       </div>
-      <button className={styles.spotifyButton} onClick={download}>
-        Baixar <FiDownload />
-      </button>
+      <div className={styles.shareContainer}>
+        <button className={styles.spotifyButton} onClick={download}>
+          Baixar <IoMdDownload />
+        </button>
+        {/* <a className={styles.shareButton}>
+          <TwitterShareButton url={description} className={styles.shareButton}>
+            Compartilhar <AiOutlineTwitter />
+          </TwitterShareButton>
+        </a> */}
+      </div>
     </main>
   );
 }

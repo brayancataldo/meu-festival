@@ -35,7 +35,10 @@ export function Navbar() {
       <div>
         {user ? (
           <div className={styles.containerHeader}>
-            <button className={styles.bigButton}>
+            <a
+              // href={`/profile/${user.id}`}
+              className={styles.bigButton}
+            >
               <div className={styles.containerProfile}>
                 <span>{user.name}</span>
                 <Image
@@ -49,7 +52,7 @@ export function Navbar() {
                   className={styles.userImage}
                 />
               </div>
-            </button>
+            </a>
 
             <button className={styles.bigButton} onClick={logOut}>
               Sair

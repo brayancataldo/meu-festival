@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
 
     @media screen and (max-width: 600px) {
       background-size: 365px;
@@ -62,32 +62,44 @@
     }
   }
 
+  .shareContainer {
+    display: flex;
+    gap: 20px;
+  }
+
+  .shareButton {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    background: #1da1f2;
+    border: 0;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 0.8rem;
+    cursor: pointer;
+    // background-color: rgba(0, 0, 0, 0%);
+    gap: 10px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
   .spotifyButton {
     display: flex;
     align-items: center;
-
-    color: #1b1f22;
+    color: #ffffff;
     background: #67d567;
     border: 0;
     border-radius: 4px;
-
     font-size: 18px;
-    font-weight: bold;
-
-    padding: 1rem;
-
+    padding: 0.8rem;
     cursor: pointer;
-
     // background-color: rgba(0, 0, 0, 0%);
-
-    svg {
-      margin-left: 0.5rem;
-    }
+    gap: 10px;
 
     &:hover {
-      // filter: brightness(0.9);
       transform: scale(1.1);
-      // background-color: rgba(0, 0, 0, 50%);
     }
   }
 }
