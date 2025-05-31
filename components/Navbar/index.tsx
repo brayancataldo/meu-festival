@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import Logo from "../../assets/logo.png";

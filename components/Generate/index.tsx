@@ -1,33 +1,13 @@
-import { useContext, useEffect, useState } from "react";
-import { IoMdDownload } from "react-icons/io";
-import { AiOutlineTwitter } from "react-icons/ai";
+"use client";
+
 import axios from "axios";
 import html2canvas from "html2canvas";
+import Image from "next/image";
+import { useContext, useEffect, useState } from "react";
+import { IoMdDownload } from "react-icons/io";
+import SpotifyLogo from "../../assets/Spotify_Logo_RGB_White.png";
 import { AuthContext } from "../../contexts/auth";
 import styles from "./styles.module.scss";
-import SpotifyLogo from "../../assets/Spotify_Logo_RGB_White.png";
-import Image from "next/image";
-import {
-  EmailShareButton,
-  FacebookShareButton,
-  HatenaShareButton,
-  InstapaperShareButton,
-  LineShareButton,
-  LinkedinShareButton,
-  LivejournalShareButton,
-  MailruShareButton,
-  OKShareButton,
-  PinterestShareButton,
-  PocketShareButton,
-  RedditShareButton,
-  TelegramShareButton,
-  TumblrShareButton,
-  TwitterShareButton,
-  ViberShareButton,
-  VKShareButton,
-  WhatsappShareButton,
-  WorkplaceShareButton,
-} from "react-share";
 interface ArtistProps {
   id: string;
   name: string;
@@ -38,9 +18,6 @@ interface ArtistProps {
 export function Generate() {
   const [artists, setArtists] = useState<ArtistProps[]>([]);
   const { user } = useContext(AuthContext);
-  const url = window.location.href;
-  const description =
-    "Esse é meu line do Rock the Mountain! Crie agora o seu em www.meu-festival-brasil.vercel.app";
 
   useEffect(() => {
     axios
@@ -68,14 +45,14 @@ export function Generate() {
         );
         setArtists(array);
       });
-  }, []);
+  }, [user?.token]);
 
   function download() {
     const element = document.querySelector("#festival") as HTMLElement;
     element.style.borderRadius = "0";
     html2canvas(element).then((canvas) => {
-      var dataURL = canvas.toDataURL("image/png");
-      var link = document.createElement("a");
+      const dataURL = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
       console.log(dataURL);
       link.href = dataURL;
       link.download = "meu-festival.png";

@@ -1,3 +1,5 @@
+"use client";
+
 import { useContext } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";

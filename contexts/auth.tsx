@@ -1,6 +1,7 @@
+"use client";
+
 import { createContext, ReactNode, useEffect, useState } from "react";
 import axios from "axios";
-import cookie from "js-cookie";
 
 interface UserProps {
   id: string;
@@ -29,7 +30,7 @@ export function AuthProvider(props: AuthProviderProps) {
     checkLogin();
 
     async function checkLogin() {
-      const token = cookie.get("token");
+      const token = localStorage.getItem("token");
 
       if (token) {
         try {
@@ -38,23 +39,27 @@ export function AuthProvider(props: AuthProviderProps) {
               Authorization: `Bearer ${token}`,
             },
           });
+
           setUser({
             id: response.data.id,
             name: response.data.display_name,
             token: token,
-            image: response.data.images[0].url || "",
+            image: response.data.images?.[0]?.url || "",
           });
+
           setLogged(true);
         } catch (err) {
-          cookie.remove("token");
+          console.log(err);
+          localStorage.removeItem("token");
           setLogged(false);
+          setUser(null);
         }
       }
     }
   }, []);
 
   function logOut() {
-    cookie.remove("token");
+    localStorage.removeItem("token");
     setUser(null);
     setLogged(false);
   }

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { FaSpotify } from "react-icons/fa";
 import axios from "axios";
@@ -7,7 +9,7 @@ export function Login() {
   const [spotifyOAuth, setSpotifyOAuth] = useState("");
 
   useEffect(() => {
-    axios.get("/api/oauth").then((response) => {
+    axios.get("http://localhost:3000/api/oauth").then((response) => {
       setSpotifyOAuth(response.data.link);
     });
   }, []);
